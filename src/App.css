@@ -389,8 +389,14 @@
 	transform: translateY(-1px);
 }
 .app-root { position: relative; width: 100%; min-height: 100vh; overflow: hidden; }
-.live-bg { position: fixed; inset: 0; z-index: -1; background-image: url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1920&auto=format&fit=crop'); background-size: cover; background-position: center; filter: saturate(110%) brightness(90%); transform: scale(1.1); animation: kenburns 24s ease-in-out infinite alternate; }
-@keyframes kenburns { 0% { transform: scale(1.08) translate3d(-1%, -1%, 0);} 50% { transform: scale(1.14) translate3d(1%, 0.5%, 0);} 100% { transform: scale(1.18) translate3d(-0.5%, 1%, 0);} }
+.live-bg {
+  position: fixed; inset: 0; z-index: -1;
+  background: none !important;
+  background-image: none !important;
+  filter: none;
+  transform: none;
+  animation: none;
+}
 
 .portfolio-container { display: flex; min-height: 80vh; max-width: 1100px; margin: 48px auto; background: rgba(20,20,20,0.28); -webkit-backdrop-filter: blur(16px) saturate(140%); backdrop-filter: blur(16px) saturate(140%); border-radius: 32px; box-shadow: 0 12px 48px rgba(0,0,0,0.25), inset 0 1.5px 6px rgba(255,255,255,0.04); overflow: hidden; border: 1px solid rgba(255,255,255,0.08); position: relative; }
 
