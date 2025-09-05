@@ -81,9 +81,6 @@ function App() {
               <li className={activeCategory === 'About' ? 'active' : ''} onClick={() => setActiveCategory('About')}>
                 <span className="cat-dot" />About
               </li>
-              <li className={activeCategory === 'Skills' ? 'active' : ''} onClick={() => setActiveCategory('Skills')}>
-                <span className="cat-dot" />Skills
-              </li>
               <li className={activeCategory === 'Jobs' ? 'active' : ''} onClick={() => setActiveCategory('Jobs')}>
                 <span className="cat-dot" />Jobs
               </li>
@@ -413,6 +410,7 @@ function App() {
         }
       `}</style>
                   <div className="skill-item"><span className="skill-icon"><svg width="28" height="28" viewBox="0 0 128 128"><path fill="#E44D26" d="M19.5 114.1L8.1 0h111.8l-11.4 114.1L63.9 128"/><path fill="#F16529" d="M64 117.2l36.7-10.2 9.8-98.1H64"/><path fill="#EBEBEB" d="M64 52.6H45.6l-1.2-13.2H64V26.6H30.7l.3 3.5 3.1 32.7H64zm0 33.6l-.1.1-15.3-4.1-.9-10.2H36.6l1.7 19.1 25.6 7.1.1-.1z"/><path fill="#FFF" d="M63.9 52.6v12.8h16.2l-1.5 16.7-14.7 4.1v13.1l25.6-7.1.2-2.1 2.9-32.7.3-3.5H63.9zm0-26v12.8h17.2l1.2-13.2H63.9z"/></svg></span>HTML</div>
+                  <div className="skill-item"><span className="skill-icon"><svg width="28" height="28" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><g><path fill="#41B883" d="M6.5 20.5h22.7l34.8 60.3 34.8-60.3h22.7L64 107.5z"/><path fill="#34495E" d="M6.5 20.5h22.7l34.8 60.3 34.8-60.3h22.7L64 107.5z" opacity=".2"/><path fill="#41B883" d="M6.5 20.5h22.7l34.8 60.3 34.8-60.3h22.7L64 107.5z"/><path fill="#34495E" d="M27.7 20.5h20.7L64 60.7l15.6-40.2h20.7L64 81.5z"/></g></svg></span>Vue.js</div>
                   <div className="skill-item"><span className="skill-icon"><svg width="28" height="28" viewBox="0 0 128 128"><path fill="#1572B6" d="M19.5 114.1L8.1 0h111.8l-11.4 114.1L63.9 128"/><path fill="#33A9DC" d="M64 117.2l36.7-10.2 9.8-98.1H64"/><path fill="#fff" d="M64 52.6H45.6l-1.2-13.2H64V26.6H30.7l.3 3.5 3.1 32.7H64zm0 33.6l-.1.1-15.3-4.1-.9-10.2H36.6l1.7 19.1 25.6 7.1.1-.1z"/><path fill="#EBEBEB" d="M63.9 52.6v12.8h16.2l-1.5 16.7-14.7 4.1v13.1l25.6-7.1.2-2.1 2.9-32.7.3-3.5H63.9zm0-26v12.8h17.2l1.2-13.2H63.9z"/></svg></span>CSS</div>
                   <div className="skill-item"><span className="skill-icon"><svg width="28" height="28" viewBox="0 0 128 128"><path fill="#F7DF1E" d="M1.408 1.408h125.184v125.185H1.408z"/><path d="M89.464 99.432c2.047 3.34 4.71 5.803 9.42 5.803 3.957 0 6.49-1.98 6.49-4.71 0-3.273-2.595-4.437-6.97-6.35l-2.39-1.02c-6.91-2.94-11.51-6.63-11.51-14.41 0-7.18 5.47-12.65 14.02-12.65 6.08 0 10.46 2.12 13.59 7.67l-7.43 4.77c-1.64-2.94-3.41-4.09-6.16-4.09-2.8 0-4.58 1.78-4.58 4.09 0 2.86 1.78 4.03 5.89 5.8l2.39 1.02c8.13 3.48 12.73 7.02 12.73 14.99 0 8.58-6.74 13.28-15.81 13.28-8.86 0-14.59-4.23-17.37-9.77zm-35.36.8c1.5 2.66 2.87 4.91 6.16 4.91 3.15 0 5.13-1.23 5.13-6.01V70.5h9.56v27.01c0 9.92-5.82 14.42-14.32 14.42-7.68 0-12.15-3.98-14.44-8.82z"/></svg></span>JavaScript</div>
                   <div className="skill-item"><span className="skill-icon"><img src="https://i.postimg.cc/D08xsZ5f/icons8-typescript-48.png" alt="TypeScript" width="28" height="28" style={{display:'block'}} /></span>TypeScript</div>
@@ -430,28 +428,8 @@ function App() {
               </section>
             </>
           )}
-
           {activeCategory === 'Skills' && (
-            <section className="skills-section">
-              <h2>My Skills</h2>
-              <div className="skills-list">
-                {/* Reuso das mesmas skills do About */}
-                <div className="skill-item"><span className="skill-icon"><svg width="28" height="28" viewBox="0 0 128 128"><path fill="#E44D26" d="M19.5 114.1L8.1 0h111.8l-11.4 114.1L63.9 128"/><path fill="#F16529" d="M64 117.2l36.7-10.2 9.8-98.1H64"/><path fill="#EBEBEB" d="M64 52.6H45.6l-1.2-13.2H64V26.6H30.7l.3 3.5 3.1 32.7H64zm0 33.6l-.1.1-15.3-4.1-.9-10.2H36.6l1.7 19.1 25.6 7.1.1-.1z"/><path fill="#FFF" d="M63.9 52.6v12.8h16.2l-1.5 16.7-14.7 4.1v13.1l25.6-7.1.2-2.1 2.9-32.7.3-3.5H63.9zm0-26v12.8h17.2l1.2-13.2H63.9z"/></svg></span>HTML</div>
-                <div className="skill-item"><span className="skill-icon"><svg width="28" height="28" viewBox="0 0 128 128"><path fill="#1572B6" d="M19.5 114.1L8.1 0h111.8l-11.4 114.1L63.9 128"/><path fill="#33A9DC" d="M64 117.2l36.7-10.2 9.8-98.1H64"/><path fill="#fff" d="M64 52.6H45.6l-1.2-13.2H64V26.6H30.7l.3 3.5 3.1 32.7H64zm0 33.6l-.1.1-15.3-4.1-.9-10.2H36.6l1.7 19.1 25.6 7.1.1-.1z"/><path fill="#EBEBEB" d="M63.9 52.6v12.8h16.2l-1.5 16.7-14.7 4.1v13.1l25.6-7.1.2-2.1 2.9-32.7.3-3.5H63.9zm0-26v12.8h17.2l1.2-13.2H63.9z"/></svg></span>CSS</div>
-                <div className="skill-item"><span className="skill-icon"><svg width="28" height="28" viewBox="0 0 128 128"><path fill="#F7DF1E" d="M1.408 1.408h125.184v125.185H1.408z"/><path d="M89.464 99.432c2.047 3.34 4.71 5.803 9.42 5.803 3.957 0 6.49-1.98 6.49-4.71 0-3.273-2.595-4.437-6.97-6.35l-2.39-1.02c-6.91-2.94-11.51-6.63-11.51-14.41 0-7.18 5.47-12.65 14.02-12.65 6.08 0 10.46 2.12 13.59 7.67l-7.43 4.77c-1.64-2.94-3.41-4.09-6.16-4.09-2.8 0-4.58 1.78-4.58 4.09 0 2.86 1.78 4.03 5.89 5.8l2.39 1.02c8.13 3.48 12.73 7.02 12.73 14.99 0 8.58-6.74 13.28-15.81 13.28-8.86 0-14.59-4.23-17.37-9.77zm-35.36.8c1.5 2.66 2.87 4.91 6.16 4.91 3.15 0 5.13-1.23 5.13-6.01V70.5h9.56v27.01c0 9.92-5.82 14.42-14.32 14.42-7.68 0-12.15-3.98-14.44-8.82z"/></svg></span>JavaScript</div>
-                <div className="skill-item"><span className="skill-icon"><img src="https://i.postimg.cc/D08xsZ5f/icons8-typescript-48.png" alt="TypeScript" width="28" height="28" style={{display:'block'}} /></span>TypeScript</div>
-                <div className="skill-item"><span className="skill-icon"><svg width="28" height="28" viewBox="0 0 128 128"><g><path fill="#3776AB" d="M63.9 1.6c-4.2.02-8.3.38-12.3 1.06-10.9 1.84-12.9 5.7-12.9 12.8v9.4h25.8v3.1H28.7c-7.2 0-13.5 4.32-15.5 12.5-2.3 9.1-2.4 14.8 0 24.2 1.8 7.2 5.9 12.5 13.1 12.5h8.5v-11.3c0-8.2 7.1-15.3 15.3-15.3h25.7c7.1 0 12.9-5.8 12.9-12.9v-24c0-7.1-5.8-11.7-12.9-12.8-4.2-.68-8.5-1.04-12.7-1.06z"/><path fill="#FFD43B" d="M101.6 28.9v10.7c0 8.5-7.2 15.7-15.7 15.7H60.2c-7.1 0-12.9 5.8-12.9 12.9v24c0 7.1 5.8 11.7 12.9 12.8 8.2 1.3 16.2 1.3 24.4 0 10.9-1.84 12.9-5.7 12.9-12.8v-9.4H72.7v-3.1h25.8c7.2 0 13.5-4.32 15.5-12.5 2.3-9.1 2.4-14.8 0-24.2-1.8-7.2-5.9-12.5-13.1-12.5h-8.5z"/></g></svg></span>Python</div>
-                <div className="skill-item"><span className="skill-icon"><img src="https://i.postimg.cc/wxZC28N4/icons8-n-js-48.png" alt="Node.js" width="28" height="28" style={{display:'block'}} /></span>Node.js</div>
-                <div className="skill-item"><span className="skill-icon"><img src="https://i.postimg.cc/hjbBwCqQ/icons8-supabase-48.png" alt="Supabase" width="28" height="28" style={{display:'block'}} /></span>Supabase</div>
-                <div className="skill-item"><span className="skill-icon"><svg width="28" height="28" viewBox="0 0 128 128"><g><path fill="#00599C" d="M64 0l55.2 32v64L64 128 8.8 96V32z"/><path fill="#fff" d="M64 8.6l48.1 27.9v55.9L64 119.4 15.9 92.4V36.5z"/><path fill="#00599C" d="M64 17.2l41.1 23.9v46.7L64 110.8 22.9 87.8V41.1z"/><path fill="#fff" d="M64 25.8l34.1 19.8v37.5L64 102.2 29.9 83.1V45.6z"/><path fill="#00599C" d="M64 34.4l27.1 15.7v28.3L64 93.6 36.9 78.4V50.1z"/></g></svg></span>C++</div>
-                <div className="skill-item"><span className="skill-icon"><svg width="28" height="28" viewBox="0 0 128 128"><g><circle cx="64" cy="64" r="11.4" fill="#61DAFB"/><g stroke="#61DAFB" strokeWidth="6" fill="none"><ellipse rx="56" ry="24" cx="64" cy="64"/><ellipse rx="56" ry="24" cx="64" cy="64" transform="rotate(60 64 64)"/><ellipse rx="56" ry="24" cx="64" cy="64" transform="rotate(120 64 64)"/></g></g></svg></span>React</div>
-                <div className="skill-item"><span className="skill-icon"><img src="https://i.postimg.cc/TPK1zvkL/icons8-tailwind-css-48.png" alt="Tailwind CSS" width="28" height="28" style={{display:'block'}} /></span>Tailwind CSS</div>
-                <div className="skill-item"><span className="skill-icon"><img src="https://i.postimg.cc/BvbPJKvv/icons8-mongodb-48.png" alt="MongoDB" width="28" height="28" style={{display:'block'}} /></span>MongoDB</div>
-                <div className="skill-item"><span className="skill-icon"><img src="https://i.postimg.cc/qq3MFBqj/icons8-linux-48.png" alt="Linux" width="28" height="28" style={{display:'block'}} /></span>Linux</div>
-                <div className="skill-item"><span className="skill-icon"><img src="https://i.postimg.cc/rsGFcVXj/icons8-intelig-ncia-64.png" alt="IA" width="28" height="28" style={{display:'block', filter:'brightness(0) invert(1)'}} /></span>IA</div>
-                <div className="skill-item"><span className="skill-icon"><img src="https://i.postimg.cc/SKYL0fhm/icons8-github-50.png" alt="GitHub" width="28" height="28" style={{display:'block'}} /></span>GitHub</div>
-              </div>
-            </section>
+            {/* Guia Skills removida */}
           )}
 
           {activeCategory === 'Jobs' && (
