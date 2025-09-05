@@ -450,3 +450,26 @@
 @media (max-width: 1200px) { .portfolio-container { max-width: 98vw; margin: 16px; } }
 @media (max-width: 900px) { .main-header { flex-direction:column; align-items:flex-start; gap:24px; } .main-content { padding:24px 8px; } .sidebar { width:100px; padding:16px 6px; } }
 
+/* Premium custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  background: linear-gradient(135deg, #181818 0%, #bfa14a22 100%);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(120deg, #e5c07b 0%, #bfa14a 100%);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px #bfa14a55, 0 0 0 2px #e5c07b, 0 1.5px 8px 2px #0005;
+  border: 2px solid #181818;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(120deg, #fffbe6 0%, #e5c07b 100%);
+  box-shadow: 0 4px 24px #bfa14a99, 0 0 0 2.5px #e5c07b, 0 1.5px 12px 2px #0005;
+}
+::-webkit-scrollbar-track {
+  background: linear-gradient(135deg, #181818 0%, #bfa14a22 100%);
+  border-radius: 10px;
+  box-shadow: 0 1px 8px #bfa14a22 inset;
+}
+

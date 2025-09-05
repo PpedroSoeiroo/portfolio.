@@ -19,6 +19,8 @@ function App() {
         playsInline
         muted={true}
         controls={false}
+        preload="auto"
+        disableRemotePlayback
         style={{
           position: 'fixed',
           top: 0,
@@ -27,6 +29,7 @@ function App() {
           height: '100vh',
           objectFit: 'cover',
           zIndex: -1,
+          background: 'black',
         }}
       />
       {/* Botão discreto para dar play no vídeo de fundo */}
