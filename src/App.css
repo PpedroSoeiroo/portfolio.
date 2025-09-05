@@ -450,7 +450,9 @@
 .job-title { color:#cfcfcf; font-size:.95rem; }
 .job-dates { color:#bdbdbd; font-size:.9rem; white-space:nowrap; }
 .job-list { margin:10px 0 0 18px; }
-.job-list li { margin:6px 0; }
+.job-list li {
+	margin: 18px 0;
+}
 
 @media (min-width: 900px) { .jobs-list { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 1200px) { .portfolio-container { max-width: 98vw; margin: 16px; } }

@@ -436,7 +436,7 @@ function App() {
             <section className="jobs-section">
               <h2>Jobs</h2>
               <div className="jobs-list">
-                <article className="job-card">
+                <article className="job-card freelancer-card">
                   <header className="job-header">
                     <div>
                       <h3 className="job-company">Data Voice Informática</h3>
@@ -470,7 +470,15 @@ function App() {
                   <header className="job-header">
                     <div>
                       <h3 className="job-company">Freelancer</h3>
-                      <div className="job-title">Projetos diversos</div>
+                       <div className="job-dates">Fevereio/2024 - Atualmente</div>
+                      <div className="job-title">
+                       </div>
+                      <ul className="job-list">
+                        <li>Desenvolvi landing pages responsivas e focadas em conversão, com design moderno, animações leves, integração com formulários de captura e ferramentas de marketing. Otimizei para SEO e performance, garantindo melhor taxa de engajamento e leads para os clientes.</li>
+                        <li>Criei websites completos, responsivos e dinâmicos, incluindo seções de portfólio, blog, contato e serviços. Implementei funcionalidades como chat online, integração com redes sociais e painel de administração, além de otimização de SEO e performance, entregando sites modernos e funcionais para empresas e profissionais.</li>
+                        <li>Desenvolvi aplicações web SaaS focadas em resolver problemas específicos, com dashboard interativo, autenticação de usuários, integração com APIs externas e sistema de pagamentos online. Apliquei práticas de UX/UI premium, animações, cores personalizadas e layouts responsivos para garantir experiência fluida aos usuários.</li>
+                        <li>Criei mini games web interativos e responsivos, com pontuação, leaderboard e efeitos visuais e sonoros. Os jogos foram desenvolvidos para desktop e mobile, usando tecnologias modernas de HTML5, Canvas e frameworks como Phaser.js, oferecendo entretenimento e engajamento aos usuários.</li>
+                      </ul>
                     </div>
                   </header>
                 </article>
