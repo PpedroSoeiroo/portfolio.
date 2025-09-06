@@ -1,3 +1,17 @@
+/* Corrige espaçamento do texto principal da seção Sobre */
+.about-section p, .about-section span, .about-section {
+	letter-spacing: normal !important;
+	word-spacing: normal !important;
+}
+.freelancer-card {
+	max-width: 1100px;
+	width: 100%;
+	margin: 0 auto;
+}
+.freelancer-card .job-list {
+	margin-left: 48px;
+	margin-right: 48px;
+}
 .video-bg {
 	animation: cinemaFade 2.5s cubic-bezier(.44,1.6,.6,.99) forwards, cinemaMove 18s ease-in-out infinite alternate;
 	filter: brightness(1.38) contrast(1.38) saturate(1.18) drop-shadow(0 0 140px #fffbe6) drop-shadow(0 0 80px #e5c07b);
@@ -39,36 +53,47 @@
 	}
 }
 /* Premium animated background and cinema lighting */
-.premium-bg {
-		animation: cinemaFade 2.5s cubic-bezier(.44,1.6,.6,.99) forwards;
-		filter: brightness(1.35) contrast(1.35) saturate(1.15) drop-shadow(0 0 120px #fffbe6) drop-shadow(0 0 60px #e5c07b);
-		box-shadow: 0 0 220px 60px #000c inset, 0 0 180px 0 #e5c07b88, 0 0 80px 0 #fffbe6;
-		position: fixed;
-		top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
+.premium-lang-btn {
+	padding: 0.18em 0.7em;
+	border-radius: 14px;
+	border: none;
+	background: linear-gradient(120deg, #fffbe6 0%, #e5c07b 60%, #bfa14a 100%);
+	color: #181818;
+	font-weight: 600;
+	font-size: 0.88rem;
+	letter-spacing: 0.3px;
+	box-shadow: 0 3px 12px #e5c07b55, 0 0 0 1.5px #fffbe6, 0 1px 8px 1px #bfa14a33;
+	cursor: pointer;
+	transition: background .18s, box-shadow .18s, color .18s, transform .18s;
+	backdrop-filter: blur(2px) saturate(110%);
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	border-bottom: 1.5px solid #e5c07b;
+	border-top: 1px solid #fffbe6;
+	border-right: 1px solid #bfa14a;
+	border-left: 1px solid #fffbe6;
+	box-sizing: border-box;
+	position: relative;
+	overflow: hidden;
 }
-
-@keyframes cinemaFade {
-		0% {
-			opacity: 0;
-			filter: brightness(0.8) contrast(1.4) saturate(1.05) blur(10px);
-			box-shadow: 0 0 0 0 #000c inset, 0 0 0 0 #e5c07b88;
-		}
-		40% {
-			opacity: 0.8;
-			filter: brightness(1.15) contrast(1.2) saturate(1.10) blur(3px);
-			box-shadow: 0 0 80px 30px #000b inset, 0 0 60px 0 #e5c07b55;
-		}
-		80% {
-			opacity: 1;
-			filter: brightness(1.35) contrast(1.35) saturate(1.15) blur(0.5px);
-			box-shadow: 0 0 180px 40px #000b inset, 0 0 120px 0 #e5c07b88, 0 0 60px 0 #fffbe6;
-		}
-		100% {
-			opacity: 1;
-			filter: brightness(1.35) contrast(1.35) saturate(1.15) blur(0px);
-			box-shadow: 0 0 220px 60px #000c inset, 0 0 180px 0 #e5c07b88, 0 0 80px 0 #fffbe6;
-		}
+.premium-lang-btn::after {
+	content: '';
+	position: absolute;
+	left: 0; top: 0; right: 0; bottom: 0;
+	border-radius: 32px;
+	pointer-events: none;
+	background: linear-gradient(120deg, rgba(255,230,120,0.13) 0%, rgba(255,255,255,0.09) 60%, rgba(255,230,120,0.13) 100%);
+	opacity: 0.18;
+	transition: opacity 0.2s;
 }
+.premium-lang-btn:hover {
+	background: linear-gradient(120deg, #e5c07b 0%, #fffbe6 100%);
+	color: #bfa14a;
+	box-shadow: 0 10px 40px #e5c07bcc, 0 0 0 4px #fffbe6, 0 4px 24px 4px #bfa14a99;
+	transform: translateY(-2px) scale(1.04);
+}
+/* Removido bloco corrompido de CSS para evitar erros de sintaxe. */
 /* Authentic Yu-Gi-Oh! Card Layout */
 .ygo-card-authentic {
 	width: min(320px, 90vw);
@@ -388,7 +413,31 @@
 	color: #fff;
 	transform: translateY(-1px);
 }
-.app-root { position: relative; width: 100%; min-height: 100vh; overflow: hidden; }
+.app-root {
+	animation: bgSoftAnim 10s ease-in-out infinite alternate;
+@keyframes bgSoftAnim {
+	0% {
+		filter: brightness(1) saturate(1);
+	}
+	50% {
+		filter: brightness(1.08) saturate(1.08);
+	}
+	100% {
+		filter: brightness(1) saturate(1);
+	}
+}
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	overflow: hidden;
+				background-image: url('https://i.postimg.cc/HWwQLdf8/wp12117900.webp');
+						background-size: 100% 100%;
+				background-position: center;
+				background-repeat: no-repeat;
+						/* Removida animação que pode causar cortes */
+			}
+
+			/* Animação removida para garantir cobertura total do background */
 .live-bg {
   position: fixed; inset: 0; z-index: -1;
   background: none !important;

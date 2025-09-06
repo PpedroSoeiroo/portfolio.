@@ -5,65 +5,209 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const [activeCategory, setActiveCategory] = useState('About');
-
-  // ...removido estado e handlers de pop-up...
+  const [lang, setLang] = useState('PT-BR');
+  const [activeCategory, setActiveCategory] = useState('Sobre');
+  const t = {
+    'PT-BR': {
+      categories: ['Sobre', 'Experiências', 'Projetos', 'Formação'],
+      about: {
+        hello: 'Olá, eu sou Pedro Soeiro!',
+        dev: 'Desenvolvedor Full Stack',
+        desc1: 'Desenvolvedor formado em Análise e Desenvolvimento de Sistemas e experiência prática em TI. Atua com Python, JavaScript, TypeScript, Node.js, React, Supabase, MongoDB, Linux, C++, GitHub e IA aplicando boas práticas e fundamentos de engenharia de software. Possui certificações de Harvard, IBM e Microsoft em Cibersegurança, Inteligência Artificial, Data Science, Cs50 e Lógica de Programação.',
+        desc2: 'Focado em criar aplicações funcionais, seguras e escaláveis, unindo conhecimento técnico e criatividade para gerar soluções de alto impacto.',
+        resume: 'Baixar Currículo',
+        skills: 'Minhas Skills',
+      },
+      jobs: 'Experiências',
+      jobsList: [
+        {
+          company: 'Data Voice Informática',
+          date: 'Fevereiro/2021 - Dezembro/2024',
+          items: [
+            'Atendimento ao público e suporte técnico.',
+            'Edição básica de logomarcas e documentos (Word, PDF, Excel).',
+            'Personalização gráfica: criação de cardápios e cartões de visita.',
+            'Manutenção e reparos em computadores, notebooks e impressoras.'
+          ]
+        },
+        {
+          company: 'CEF',
+          date: 'Fevereiro/2021 - Dezembro/2021',
+          items: [
+            'Atendimento ao público.',
+            'Edição de documentos (Word, PDF, Excel).',
+            'Emissão de Carnês, Boletim Escolar e Planilhas.'
+          ]
+        },
+        {
+          company: 'Freelancer',
+          date: 'Fevereiro/2024 - Atualmente',
+          items: [
+            'Desenvolvi landing pages responsivas e focadas em conversão, com design moderno, animações leves, integração com formulários de captura e ferramentas de marketing. Otimizei para SEO e performance, garantindo melhor taxa de engajamento e leads para os clientes.',
+            'Criei websites completos, responsivos e dinâmicos, incluindo seções de portfólio, blog, contato e serviços. Implementei funcionalidades como chat online, integração com redes sociais e painel de administração, além de otimização de SEO e performance, entregando sites modernos e funcionais para empresas e profissionais.',
+            'Desenvolvi aplicações web SaaS focadas em resolver problemas específicos, com dashboard interativo, autenticação de usuários, integração com APIs externas e sistema de pagamentos online. Apliquei práticas de UX/UI premium, animações, cores personalizadas e layouts responsivos para garantir experiência fluida aos usuários.',
+            'Criei mini games web interativos e responsivos, com pontuação, leaderboard e efeitos visuais e sonoros. Os jogos foram desenvolvidos para desktop e mobile, usando tecnologias modernas de HTML5, Canvas e frameworks como Phaser.js, oferecendo entretenimento e engajamento aos usuários.'
+          ]
+        }
+      ],
+      projects: 'Projetos',
+      projectsList: [
+        {
+          company: 'Snake Game',
+          tech: 'HTML, CSS, JavaScript',
+          desc: 'Snake Game clássico feito em JavaScript, HTML e CSS.',
+          btn: 'Jogar'
+        },
+        {
+          company: 'Websites',
+          tech: 'HTML, CSS, JavaScript',
+          desc: 'Crio websites responsivos e otimizados, com foco em design moderno, usabilidade intuitiva e alta performance. Utilizo tecnologias atuais (HTML, CSS, JavaScript, React/Next.js, TailwindCSS) para entregar páginas rápidas, seguras e preparadas para SEO, sempre alinhadas à identidade e objetivos do cliente.',
+          btn: 'Ver site'
+        },
+        {
+          company: 'Landing Pages',
+          tech: 'HTML, CSS, JavaScript, Tailwind, 3D',
+          desc: 'Landing pages para nutricionistas, academias, advocacias, personal, etc... focadas em conversão. Interfaces modernas, atrativas e de alto desempenho.',
+          btn: 'Ver landing'
+        },
+        {
+          company: 'MicroSaaS',
+          tech: 'HTML, CSS, JavaScript, React, Tailwind, Supabase',
+          desc: 'Desenvolvo aplicações MicroSaaS focadas em nichos específicos, com arquitetura escalável, UX simples e processos automatizados. Meus projetos unem tecnologia moderna a um modelo de assinatura recorrente, entregando soluções digitais leves, acessíveis e com alto potencial de crescimento.',
+          btn: 'Ver SaaS'
+        }
+      ],
+      educations: 'Formação',
+      educationsList: [
+        {
+          company: 'Ensino Superior',
+          tech: 'Análise e Desenvolvimento de Sistemas',
+          items: ['Formação superior em ADS.']
+        },
+        {
+          company: 'Mestrado',
+          tech: 'Em andamento',
+          items: ['Programa de pós-graduação em curso.']
+        }
+      ],
+      social: 'Redes Sociais',
+      phone: 'Telefone',
+      email: 'Email',
+      download: 'Baixar Currículo',
+    },
+    'EN': {
+      categories: ['About', 'Jobs', 'Projects', 'Educations'],
+      about: {
+  hello: 'Hello, I am Pedro Soeiro!',
+  dev: 'Full Stack Developer',
+  desc1: 'Developer graduated in Systems Analysis and Development with hands-on IT experience. Works with Python, JavaScript, TypeScript, Node.js, React, Supabase, MongoDB, Linux, C++, GitHub, and AI applying best practices and software engineering fundamentals. Holds certifications from Harvard, IBM, and Microsoft in Cybersecurity, Artificial Intelligence, Data Science, CS50, and Programming Logic.',
+  desc2: 'Focused on creating functional, secure, and scalable applications, combining technical knowledge and creativity to deliver high-impact solutions.'
+  ,
+  resume: 'Download Resume',
+        skills: 'My Skills',
+      },
+      jobs: 'Jobs',
+      jobsList: [
+        {
+          company: 'Data Voice Informática',
+          date: 'Feb/2021 - Dec/2024',
+          items: [
+            'Customer service and technical support.',
+            'Basic editing of logos and documents (Word, PDF, Excel).',
+            'Graphic customization: menu and business card creation.',
+            'Maintenance and repair of computers, notebooks and printers.'
+          ]
+        },
+        {
+          company: 'CEF',
+          date: 'Feb/2021 - Dec/2021',
+          items: [
+            'Customer service.',
+            'Document editing (Word, PDF, Excel).',
+            'Issuing payment books, school reports and spreadsheets.'
+          ]
+        },
+        {
+          company: 'Freelancer',
+          date: 'Feb/2024 - Present',
+          items: [
+            'Developed responsive landing pages focused on conversion, with modern design, light animations, integration with capture forms and marketing tools. Optimized for SEO and performance, ensuring better engagement and leads for clients.',
+            'Created complete, responsive and dynamic websites, including portfolio, blog, contact and services sections. Implemented features such as online chat, social media integration and admin panel, as well as SEO and performance optimization, delivering modern and functional sites for companies and professionals.',
+            'Developed SaaS web applications focused on solving specific problems, with interactive dashboard, user authentication, integration with external APIs and online payment system. Applied premium UX/UI practices, animations, custom colors and responsive layouts to ensure a smooth user experience.',
+            'Created interactive and responsive web mini games, with scoring, leaderboard and visual and sound effects. The games were developed for desktop and mobile, using modern HTML5 technologies, Canvas and frameworks such as Phaser.js, offering entertainment and engagement to users.'
+          ]
+        }
+      ],
+      projects: 'Projects',
+      projectsList: [
+        {
+          company: 'Snake Game',
+          tech: 'HTML, CSS, JavaScript',
+          desc: 'Classic Snake Game made with JavaScript, HTML and CSS.',
+          btn: 'Play'
+        },
+        {
+          company: 'Websites',
+          tech: 'HTML, CSS, JavaScript',
+          desc: 'I create responsive and optimized websites, focusing on modern design, intuitive usability and high performance. I use current technologies (HTML, CSS, JavaScript, React/Next.js, TailwindCSS) to deliver fast, secure and SEO-ready pages, always aligned with the client’s identity and goals.',
+          btn: 'View site'
+        },
+        {
+          company: 'Landing Pages',
+          tech: 'HTML, CSS, JavaScript, Tailwind, 3D',
+          desc: 'Landing pages for nutritionists, gyms, law firms, personal trainers, etc... focused on conversion. Modern, attractive and high-performance interfaces.',
+          btn: 'View landing'
+        },
+        {
+          company: 'MicroSaaS',
+          tech: 'HTML, CSS, JavaScript, React, Tailwind, Supabase',
+          desc: 'I develop MicroSaaS applications focused on specific niches, with scalable architecture, simple UX and automated processes. My projects combine modern technology with a recurring subscription model, delivering lightweight, accessible digital solutions with high growth potential.',
+          btn: 'View SaaS'
+        }
+      ],
+      educations: 'Educations',
+      educationsList: [
+        {
+          company: 'Higher Education',
+          tech: 'Systems Analysis and Development',
+          items: ['Bachelor degree in Systems Analysis and Development.']
+        },
+        {
+          company: 'Master’s Degree',
+          tech: 'In progress',
+          items: ['Postgraduate program in progress.']
+        }
+      ],
+      social: 'Social Link',
+      phone: 'Phone',
+      email: 'Email',
+      download: 'Download Resume',
+    }
+  };
+  React.useEffect(() => {
+    // Sincroniza categoria ativa ao trocar idioma, mantendo equivalente
+    const idx = Object.values(t).some(obj => obj.categories.includes(activeCategory))
+      ? t[lang === 'PT-BR' ? 'EN' : 'PT-BR'].categories.indexOf(activeCategory)
+      : t[lang].categories.indexOf(activeCategory);
+    if (idx >= 0 && idx < t[lang].categories.length) {
+      setActiveCategory(t[lang].categories[idx]);
+    }
+  }, [lang]);
   return (
     <div className="app-root">
-      <video
-        id="bgVideo"
-        className="live-bg premium-bg cinema-anim-bg video-bg"
-        src="https://ia601004.us.archive.org/4/items/1111111111111_202509/1111111111111.mp4"
-        autoPlay
-        loop
-        playsInline
-        muted={true}
-        controls={false}
-        preload="auto"
-        disableRemotePlayback
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          objectFit: 'cover',
-          zIndex: -1,
-          background: 'black',
-        }}
-      />
-      {/* Botão discreto para dar play no vídeo de fundo */}
-      <div style={{position: 'fixed', right: '18px', top: '0px', zIndex: 100}}>
+      <div style={{position: 'fixed', top: 18, right: 18, zIndex: 9999}}>
         <button
-          className="play-bg-video-btn-premium"
-          onClick={() => {
-            const video = document.getElementById('bgVideo');
-            if (video) {
-              video.muted = false;
-              video.play();
-            }
-          }}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: 'rgba(30,30,30,0.38)',
-            color: '#fffbe6',
-            border: 'none',
-            borderRadius: '50%',
-            padding: '16px',
-            fontSize: '1.6rem',
-            boxShadow: '0 2px 12px #000a',
-            cursor: 'pointer',
-            opacity: 0.85,
-            transition: 'opacity .2s, box-shadow .2s',
-            backdropFilter: 'blur(2px)',
-          }}
-          title="Ativar áudio do vídeo de fundo"
+          onClick={() => setLang(lang === 'PT-BR' ? 'EN' : 'PT-BR')}
+          className="premium-lang-btn"
+          title={lang === 'PT-BR' ? 'Switch to English' : 'Mudar para Português'}
         >
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="5,3 19,12 5,21" fill="#e5c07b" />
-          </svg>
+          <span style={{display:'flex',alignItems:'center',gap:8}}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style={{marginRight:4}} xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="12" fill="#e5c07b" />
+              <text x="12" y="16" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#181818">{lang === 'PT-BR' ? 'PT' : 'EN'}</text>
+            </svg>
+            <span style={{fontWeight:'bold',fontSize:'1.08rem',color:'#181818'}}>{lang === 'PT-BR' ? 'PT' : 'EN'}</span>
+          </span>
         </button>
       </div>
       <div className="portfolio-container">
@@ -78,18 +222,11 @@ function App() {
           </div>
           <nav className="sidebar-nav">
             <ul className="premium-categories">
-              <li className={activeCategory === 'About' ? 'active' : ''} onClick={() => setActiveCategory('About')}>
-                <span className="cat-dot" />About
-              </li>
-              <li className={activeCategory === 'Jobs' ? 'active' : ''} onClick={() => setActiveCategory('Jobs')}>
-                <span className="cat-dot" />Jobs
-              </li>
-              <li className={activeCategory === 'Projects' ? 'active' : ''} onClick={() => setActiveCategory('Projects')}>
-                <span className="cat-dot" />Projects
-              </li>
-              <li className={activeCategory === 'Educations' ? 'active' : ''} onClick={() => setActiveCategory('Educations')}>
-                <span className="cat-dot" />Educations
-              </li>
+              {t[lang].categories.map((cat, idx) => (
+                <li key={cat} className={activeCategory === t['EN'].categories[idx] || activeCategory === t['PT-BR'].categories[idx] ? 'active' : ''} onClick={() => setActiveCategory(cat)}>
+                  <span className="cat-dot" />{cat}
+                </li>
+              ))}
             </ul>
       <style>{`
         .premium-categories {
@@ -152,7 +289,7 @@ function App() {
       `}</style>
           </nav>
           <div className="sidebar-social premium-social">
-            <h3>Social Link</h3>
+            <h3>{t[lang].social}</h3>
             <ul>
               <li>
                 <a className="premium-social-link" href="https://www.linkedin.com/in/pedro-baruc-pinto-soeiro-76217a26b" target="_blank" rel="noopener noreferrer">
@@ -175,7 +312,7 @@ function App() {
                   <span className="psicon" style={{color:'#25d366'}}>
                     <svg width="20" height="20" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#fff"/><path d="M16 7.1c-4.9 0-8.9 4-8.9 8.9 0 1.6.4 3.1 1.2 4.5l-1.3 4.7 4.8-1.3c1.3.7 2.7 1.1 4.2 1.1 4.9 0 8.9-4 8.9-8.9s-4-8.9-8.9-8.9zm4.9 12.2c-.2.6-1.1 1.1-1.5 1.2-.4.1-.9.2-1.5.1-.3-.1-.7-.1-1.2-.3-.3-.1-.7-.2-1.2-.5-.7-.4-2.2-1.5-2.6-2.9-.3-.8-.3-1.5 0-2 .1-.2.2-.3.4-.4.1-.1.2-.1.3-.1h.2c.1 0 .2 0 .3.2.1.2.4.6.5.8.1.2.1.3 0 .5-.1.1-.2.3-.3.4-.1.1-.2.2-.1.4.2.4.7 1.1 1.5 1.5.7.4 1.2.5 1.4.3.2-.2.5-.6.6-.7.1-.1.2-.1.4 0 .1.1.4.2.5.3.1.1.2.1.3.2.1.1.1.2.1.3zm-4.9 5.2c-1.2 0-2.4-.3-3.4-.8l-.2-.1-3.2.9.9-3.1-.1-.2c-.6-1-1-2.2-1-3.4 0-3.9 3.2-7.1 7.1-7.1s7.1 3.2 7.1 7.1-3.2 7.1-7.1 7.1z" fill="#25d366"/></svg>
                   </span>
-                  Phone
+                  {t[lang].phone}
                 </a>
               </li>
               <li>
@@ -183,7 +320,7 @@ function App() {
                   <span className="psicon" style={{color:'#ea4335'}}>
                     <svg width="20" height="20" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#fff"/><path d="M24 10.7v10.6c0 .6-.5 1.1-1.1 1.1H9.1c-.6 0-1.1-.5-1.1-1.1V10.7c0-.6.5-1.1 1.1-1.1h13.8c.6 0 1.1.5 1.1 1.1zm-2.2 0l-5.8 4.6-5.8-4.6v10.6h11.6V10.7zm-5.8 3.2l5.8-4.6H9.1l5.8 4.6z" fill="#ea4335"/></svg>
                   </span>
-                  Email
+                  {t[lang].email}
                 </a>
               </li>
             </ul>
@@ -227,15 +364,15 @@ function App() {
       `}</style>
         </aside>
         <main className="main-content">
-          {activeCategory === 'About' && (
+          {(activeCategory === t[lang].categories[0]) && (
             <>
               <header className="main-header">
                 <div className="profile-info">
-                  <h1>Olá, eu sou Pedro Soeiro!</h1>
-                  <p>Desenvolvedor Full Stack</p>
+                  <h1>{t[lang].about.hello}</h1>
+                  <p>{t[lang].about.dev}</p>
                   <div style={{ textAlign: 'justify' }}>
-                    <p>Desenvolvedor formado em Análise e Desenvolvimento de Sistemas e experiência prática em TI. Atua com Python, JavaScript, TypeScript, Node.js, React, Supabase, MongoDB, Linux, C++, GitHub e IA aplicando boas práticas e fundamentos de engenharia de software. Possui certificações de Harvard, IBM e Microsoft em Cibersegurança, Inteligência Artificial, Data Science, Cs50 e Lógica de Programação.</p>
-                    <p>Focado em criar aplicações funcionais, seguras e escaláveis, unindo conhecimento técnico e criatividade para gerar soluções de alto impacto.</p>
+                    <p>{t[lang].about.desc1}</p>
+                    <p>{t[lang].about.desc2}</p>
                   </div>
                   <a
                     className="download-btn"
@@ -243,7 +380,7 @@ function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Download Resume
+                    {t[lang].about.resume}
                   </a>
                 </div>
                 <div className="profile-img">
@@ -354,7 +491,7 @@ function App() {
               </header>
 
               <section className="skills-section">
-                <h2>My Skills</h2>
+                <h2>{t[lang].about.skills}</h2>
                 <div className="skills-list premium-skills-list">
       <style>{`
         .premium-skills-list {
@@ -432,74 +569,43 @@ function App() {
             {/* Guia Skills removida */}
           )}
 
-          {activeCategory === 'Jobs' && (
+          {(activeCategory === t[lang].categories[1]) && (
             <section className="jobs-section">
-              <h2>Jobs</h2>
+              <h2>{t[lang].jobs}</h2>
               <div className="jobs-list">
-                <article className="job-card freelancer-card">
-                  <header className="job-header">
-                    <div>
-                      <h3 className="job-company">Data Voice Informática</h3>
-                    </div>
-                    <div className="job-dates">Fevereiro/2021 - Dezembro/2024</div>
-                  </header>
-                  <ul className="job-list">
-                    <li>Atendimento ao público e suporte técnico.</li>
-                    <li>Edição básica de logomarcas e documentos (Word, PDF, Excel).</li>
-                    <li>Personalização gráfica: criação de cardápios e cartões de visita.</li>
-                    <li>Manutenção e reparos em computadores, notebooks e impressoras.</li>
-                  </ul>
-                </article>
-
-                <article className="job-card">
-                  <header className="job-header">
-                    <div>
-                      <h3 className="job-company">CEF</h3>
-                      <div className="job-title">Secretário</div>
-                    </div>
-                    <div className="job-dates">Fevereiro/2021 - Dezembro/2021</div>
-                  </header>
-                  <ul className="job-list">
-                    <li>Atendimento ao público.</li>
-                    <li>Edição de documentos (Word, PDF, Excel).</li>
-                    <li>Emissão de Carnês, Boletim Escolar e Planilhas.</li>
-                  </ul>
-                </article>
-
-                <article className="job-card">
-                  <header className="job-header">
-                    <div>
-                      <h3 className="job-company">Freelancer</h3>
-                       <div className="job-dates">Fevereio/2024 - Atualmente</div>
-                      <div className="job-title">
-                       </div>
-                      <ul className="job-list">
-                        <li>Desenvolvi landing pages responsivas e focadas em conversão, com design moderno, animações leves, integração com formulários de captura e ferramentas de marketing. Otimizei para SEO e performance, garantindo melhor taxa de engajamento e leads para os clientes.</li>
-                        <li>Criei websites completos, responsivos e dinâmicos, incluindo seções de portfólio, blog, contato e serviços. Implementei funcionalidades como chat online, integração com redes sociais e painel de administração, além de otimização de SEO e performance, entregando sites modernos e funcionais para empresas e profissionais.</li>
-                        <li>Desenvolvi aplicações web SaaS focadas em resolver problemas específicos, com dashboard interativo, autenticação de usuários, integração com APIs externas e sistema de pagamentos online. Apliquei práticas de UX/UI premium, animações, cores personalizadas e layouts responsivos para garantir experiência fluida aos usuários.</li>
-                        <li>Criei mini games web interativos e responsivos, com pontuação, leaderboard e efeitos visuais e sonoros. Os jogos foram desenvolvidos para desktop e mobile, usando tecnologias modernas de HTML5, Canvas e frameworks como Phaser.js, oferecendo entretenimento e engajamento aos usuários.</li>
-                      </ul>
-                    </div>
-                  </header>
-                </article>
+                {t[lang].jobsList.map((job, idx) => (
+                  <article className={`job-card${idx === 0 || idx === 2 ? ' freelancer-card' : ''}`} key={job.company} style={idx === 2 ? {gridColumn: '1 / span 2'} : {}}>
+                    <header className="job-header">
+                      <div>
+                        <h3 className="job-company">{job.company}</h3>
+                        {idx === 1 && lang === 'PT-BR' && <div className="job-title" style={{fontWeight:'bold'}}>Secretário</div>}
+                        {idx === 1 && lang === 'EN' && <div className="job-title">Secretary</div>}
+                      </div>
+                      <div className="job-dates">{job.date}</div>
+                    </header>
+                    <ul className="job-list">
+                      {job.items.map((item, i) => <li key={i}>{item}</li>)}
+                    </ul>
+                  </article>
+                ))}
               </div>
             </section>
           )}
 
-          {activeCategory === 'Projects' && (
+          {(activeCategory === t[lang].categories[2]) && (
       <section className="projects-section">
         <div className="jobs-list">
-          <article className="job-card">
+          {/* Snake Game Card */}
+          <article className="job-card freelancer-card">
             <header className="job-header">
               <div>
-                <h3 className="job-company">Snake Game</h3>
-                <div className="job-title">HTML, CSS, JavaScript</div>
+                <h3 className="job-company">{t[lang].projectsList[0].company}</h3>
+                <div className="job-title">{t[lang].projectsList[0].tech}</div>
               </div>
             </header>
             <ul className="job-list">
-              <li>Snake Game clássico feito em JavaScript, HTML e CSS.</li>
+              <li>{t[lang].projectsList[0].desc}</li>
             </ul>
-            {/* Botão numerado para redirecionar para o Snake Game */}
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '16px' }}>
               <span style={{ fontWeight: 'bold', fontSize: '1.2rem', marginBottom: '4px' }}>1 <span style={{ fontSize: '0.95rem', fontWeight: 'normal' }}>(Snake Game)</span></span>
               <a href="https://snaakegamee.netlify.app/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
@@ -514,17 +620,17 @@ function App() {
             </div>
           </article>
 
+          {/* Websites Card */}
           <article className="job-card">
             <header className="job-header">
               <div>
-                <h3 className="job-company">Websites</h3>
-                <div className="job-title">HTML, CSS, JavaScript</div>
+                <h3 className="job-company">{t[lang].projectsList[1].company}</h3>
+                <div className="job-title">{t[lang].projectsList[1].tech}</div>
               </div>
             </header>
             <ul className="job-list">
-              <li>Crio websites responsivos e otimizados, com foco em design moderno, usabilidade intuitiva e alta performance. Utilizo tecnologias atuais (HTML, CSS, JavaScript, React/Next.js, TailwindCSS) para entregar páginas rápidas, seguras e preparadas para SEO, sempre alinhadas à identidade e objetivos do cliente.</li>
+              <li>{t[lang].projectsList[1].desc}</li>
             </ul>
-            {/* Botão numerado para redirecionar para o site da barbearia */}
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '16px' }}>
               <span style={{ fontWeight: 'bold', fontSize: '1.2rem', marginBottom: '4px' }}>1</span>
               <a href="https://barbeariareall.netlify.app" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
@@ -539,18 +645,17 @@ function App() {
             </div>
           </article>
 
+          {/* Landing Pages Card */}
           <article className="job-card">
             <header className="job-header">
               <div>
-                <h3 className="job-company">Landing Pages</h3>
-                <div className="job-title">HTML, CSS, JavaScript, Tailwind, 3D</div>
+                <h3 className="job-company">{t[lang].projectsList[2].company}</h3>
+                <div className="job-title">{t[lang].projectsList[2].tech}</div>
               </div>
             </header>
             <ul className="job-list">
-              <li>Landing pages para nutricionistas, academias, advocacias, personal, etc... focadas em conversão.</li>
-              <li>Interfaces modernas, atrativas e de alto desempenho.</li>
+              <li>{t[lang].projectsList[2].desc}</li>
             </ul>
-            {/* Botão numerado para redirecionar */}
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '24px', marginTop: '16px' }}>
               {/* Botão 1 */}
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -607,17 +712,17 @@ function App() {
             </div>
           </article>
 
+          {/* MicroSaaS Card */}
           <article className="job-card">
             <header className="job-header">
               <div>
-                <h3 className="job-company">MicroSaaS</h3>
-                <div className="job-title">HTML, CSS, JavaScript, React, Tailwind, Supabase</div>
+                <h3 className="job-company">{t[lang].projectsList[3].company}</h3>
+                <div className="job-title">{t[lang].projectsList[3].tech}</div>
               </div>
             </header>
             <ul className="job-list">
-              <li>Desenvolvo aplicações MicroSaaS focadas em nichos específicos, com arquitetura escalável, UX simples e processos automatizados. Meus projetos unem tecnologia moderna a um modelo de assinatura recorrente, entregando soluções digitais leves, acessíveis e com alto potencial de crescimento.</li>
+              <li>{t[lang].projectsList[3].desc}</li>
             </ul>
-            {/* Botão numerado para redirecionar para o MicroSaaS */}
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '24px', marginTop: '16px' }}>
               {/* Botão 1 */}
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -651,33 +756,23 @@ function App() {
       </section>
           )}
 
-          {activeCategory === 'Educations' && (
+          {(activeCategory === t[lang].categories[3]) && (
             <section className="jobs-section">
-              <h2>Educations</h2>
+              <h2>{t[lang].educations}</h2>
               <div className="jobs-list">
-                <article className="job-card">
-                  <header className="job-header">
-                    <div>
-                      <h3 className="job-company">Ensino Superior</h3>
-                      <div className="job-title">Análise e Desenvolvimento de Sistemas</div>
-                    </div>
-                  </header>
-                  <ul className="job-list">
-                    <li>Formação superior em ADS.</li>
-                  </ul>
-                </article>
-
-                <article className="job-card">
-                  <header className="job-header">
-                    <div>
-                      <h3 className="job-company">Mestrado</h3>
-                      <div className="job-title">Em andamento</div>
-                    </div>
-                  </header>
-                  <ul className="job-list">
-                    <li>Programa de pós-graduação em curso.</li>
-                  </ul>
-                </article>
+                {t[lang].educationsList.map((edu) => (
+                  <article className="job-card" key={edu.company}>
+                    <header className="job-header">
+                      <div>
+                        <h3 className="job-company">{edu.company}</h3>
+                        <div className="job-title">{edu.tech}</div>
+                      </div>
+                    </header>
+                    <ul className="job-list">
+                      {edu.items.map((item, i) => <li key={i}>{item}</li>)}
+                    </ul>
+                  </article>
+                ))}
               </div>
             </section>
           )}
