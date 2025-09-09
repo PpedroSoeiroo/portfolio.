@@ -13,7 +13,7 @@ function App() {
       about: {
         hello: 'Olá, eu sou Pedro Soeiro!',
         dev: 'Desenvolvedor Full Stack',
-        desc1: 'Desenvolvedor formado em Análise e Desenvolvimento de Sistemas e experiência prática em TI. Atua com Python, JavaScript, TypeScript, Node.js, React, Supabase, MongoDB, Linux, C++, GitHub e IA aplicando boas práticas e fundamentos de engenharia de software. Possui certificações de Harvard, IBM e Microsoft em Cibersegurança, Inteligência Artificial, Data Science, Cs50 e Lógica de Programação.',
+        desc1: 'Desenvolvedor formado e experiência prática em TI. Atua com Python, JavaScript, TypeScript, Node.js, React, Supabase, MongoDB, Linux, C++, GitHub e IA aplicando boas práticas e fundamentos de engenharia de software. Possui certificações de Harvard, IBM e Microsoft em Cibersegurança, Inteligência Artificial, Data Science, Cs50 e Lógica de Programação.',
         desc2: 'Focado em criar aplicações funcionais, seguras e escaláveis, unindo conhecimento técnico e criatividade para gerar soluções de alto impacto.',
         resume: 'Baixar Currículo',
         skills: 'Minhas Skills',
@@ -96,17 +96,16 @@ function App() {
       download: 'Baixar Currículo',
     },
     'EN': {
-      categories: ['About', 'Jobs', 'Projects', 'Educations'],
+      categories: ['About', 'Experiences', 'Projects', 'Education'],
       about: {
-  hello: 'Hello, I am Pedro Soeiro!',
-  dev: 'Full Stack Developer',
-  desc1: 'Developer graduated in Systems Analysis and Development with hands-on IT experience. Works with Python, JavaScript, TypeScript, Node.js, React, Supabase, MongoDB, Linux, C++, GitHub, and AI applying best practices and software engineering fundamentals. Holds certifications from Harvard, IBM, and Microsoft in Cybersecurity, Artificial Intelligence, Data Science, CS50, and Programming Logic.',
-  desc2: 'Focused on creating functional, secure, and scalable applications, combining technical knowledge and creativity to deliver high-impact solutions.'
-  ,
-  resume: 'Download Resume',
+        hello: 'Hello, I am Pedro Soeiro!',
+        dev: 'Full Stack Developer',
+        desc1: 'Developer with a degree and practical experience in IT. Works with Python, JavaScript, TypeScript, Node.js, React, Supabase, MongoDB, Linux, C++, GitHub and AI, applying best practices and software engineering fundamentals. Holds certifications from Harvard, IBM and Microsoft in Cybersecurity, Artificial Intelligence, Data Science, Cs50 and Programming Logic.',
+        desc2: 'Focused on creating functional, secure and scalable applications, combining technical knowledge and creativity to generate high-impact solutions.',
+        resume: 'Download Resume',
         skills: 'My Skills',
       },
-      jobs: 'Jobs',
+      jobs: 'Experiences',
       jobsList: [
         {
           company: 'Data Voice Informática',
@@ -148,8 +147,8 @@ function App() {
         },
         {
           company: 'Websites',
-          tech: 'HTML, CSS, JavaScript',
-          desc: 'I create responsive and optimized websites, focusing on modern design, intuitive usability and high performance. I use current technologies (HTML, CSS, JavaScript, React/Next.js, TailwindCSS) to deliver fast, secure and SEO-ready pages, always aligned with the client’s identity and goals.',
+          tech: 'HTML, CSS, JavaScript, React, TailwindCSS',
+          desc: 'I create responsive and optimized websites, focusing on modern design, intuitive usability and high performance. I use current technologies (HTML, CSS, JavaScript, React.js, TailwindCSS) to deliver fast, secure and SEO-ready pages, always aligned with the client’s identity and goals.',
           btn: 'View site'
         },
         {
@@ -160,12 +159,12 @@ function App() {
         },
         {
           company: 'MicroSaaS',
-          tech: 'HTML, CSS, JavaScript, React, Tailwind, Supabase',
+          tech: 'HTML, CSS, JavaScript, React, TailwindCSS, Supabase',
           desc: 'I develop MicroSaaS applications focused on specific niches, with scalable architecture, simple UX and automated processes. My projects combine modern technology with a recurring subscription model, delivering lightweight, accessible digital solutions with high growth potential.',
           btn: 'View SaaS'
         }
       ],
-      educations: 'Educations',
+      educations: 'Education',
       educationsList: [
         {
           company: 'Higher Education',
@@ -182,7 +181,7 @@ function App() {
       phone: 'Phone',
       email: 'Email',
       download: 'Download Resume',
-    }
+    },
   };
   React.useEffect(() => {
     // Sincroniza categoria ativa ao trocar idioma, mantendo equivalente
@@ -223,7 +222,11 @@ function App() {
           <nav className="sidebar-nav">
             <ul className="premium-categories">
               {t[lang].categories.map((cat, idx) => (
-                <li key={cat} className={activeCategory === t['EN'].categories[idx] || activeCategory === t['PT-BR'].categories[idx] ? 'active' : ''} onClick={() => setActiveCategory(cat)}>
+                <li
+                  key={cat + '-' + idx}
+                  className={activeCategory === t['EN'].categories[idx] || activeCategory === t['PT-BR'].categories[idx] ? 'active' : ''}
+                  onClick={() => setActiveCategory(cat)}
+                >
                   <span className="cat-dot" />{cat}
                 </li>
               ))}
@@ -237,22 +240,21 @@ function App() {
           flex-direction: column;
           gap: 10px;
         }
-        .premium-categories li {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          font-size: 1.13rem;
-          font-weight: 600;
-          color: #fffbe6;
-          background: rgba(20,20,20,0.62);
-          border-radius: 12px;
-          padding: 8px 22px 8px 16px;
-          margin-bottom: 2px;
-          cursor: pointer;
-          box-shadow: 0 1px 8px #bfa14a22, 0 0 0 1.5px #bfa14a22 inset;
-          transition: box-shadow 0.25s, background 0.25s, color 0.25s, transform 0.25s;
-          position: relative;
-          animation: fadeUpCat 0.7s cubic-bezier(.4,2,.6,1) both;
+          .premium-categories li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.13rem;
+            font-weight: 600;
+            color: #fffbe6;
+            background: rgba(20,20,20,0.62);
+            border-radius: 12px;
+            padding: 8px 22px 8px 16px;
+            margin-bottom: 2px;
+            cursor: pointer;
+            box-shadow: 0 1px 8px #bfa14a22, 0 0 0 1.5px #bfa14a22 inset;
+            transition: box-shadow 0.25s, background 0.25s, color 0.25s, transform 0.25s;
+            position: relative;
         }
         .premium-categories li:hover {
           background: linear-gradient(90deg, #bfa14a33 0%, #181818 100%);
@@ -393,24 +395,24 @@ function App() {
                       overflow: 'visible',
                       marginLeft: '28px',
                       zIndex: 1,
-                      animation: 'floatProfile 2.8s ease-in-out infinite',
+                      /* animation removida para evitar pisca ao trocar idioma */
                       perspective: '1200px',
                     }}
                   >
                     <div
                       className="profile-3d-premium"
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        borderRadius: '16px',
-                        background: 'linear-gradient(120deg, #fffbe6 0%, #f7e7b6 100%)',
-                        transform: 'rotateY(-13deg) rotateX(7deg) scale(1.01)',
-                        boxShadow: '0 18px 40px -8px #bfa14a99, 0 0 0 2.5px #e5c07b, 0 1.5px 12px 2px #0005',
-                        position: 'relative',
-                        overflow: 'hidden',
-                        filter: 'drop-shadow(0 8px 24px #bfa14a55)',
-                        transition: 'transform 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.3s',
-                      }}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          borderRadius: '16px',
+                          background: 'linear-gradient(120deg, #fffbe6 0%, #f7e7b6 100%)',
+                          boxShadow: '0 18px 40px -8px #bfa14a99, 0 0 0 2.5px #e5c07b, 0 1.5px 12px 2px #0005',
+                          position: 'relative',
+                          overflow: 'hidden',
+                          filter: 'drop-shadow(0 8px 24px #bfa14a55)',
+                          transition: 'transform 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.3s',
+                          animation: 'profile3d 3.2s cubic-bezier(.4,2,.6,1) infinite',
+                        }}
                     >
                       <img 
                         src="https://i.postimg.cc/yNp5JD61/Any-Conv-com-Pedro-Soeiro-2.webp" 
@@ -440,7 +442,7 @@ function App() {
                           borderRadius: '16px',
                           background: 'linear-gradient(120deg, rgba(255,255,255,0.0) 38%, rgba(255,230,120,0.28) 50%, rgba(255,255,255,0.0) 62%)',
                           filter: 'blur(1.1px)',
-                          animation: 'shinePremium 2.8s linear infinite',
+                          /* animation removida para evitar pisca ao trocar idioma */
                         }} />
                       </div>
                       {/* Luz lateral simulando relevo */}
@@ -474,10 +476,22 @@ function App() {
                       }} />
                     </div>
                     <style>{`
-                      @keyframes floatProfile {
-                        0% { transform: translateY(0); }
-                        50% { transform: translateY(-12px); }
-                        100% { transform: translateY(0); }
+                      @keyframes profile3d {
+                        0% {
+                          transform: rotateY(-13deg) rotateX(7deg) scale(1.01) translateY(0);
+                        }
+                        20% {
+                          transform: rotateY(-18deg) rotateX(10deg) scale(1.03) translateY(-8px);
+                        }
+                        50% {
+                          transform: rotateY(-8deg) rotateX(0deg) scale(1.04) translateY(-14px);
+                        }
+                        80% {
+                          transform: rotateY(-18deg) rotateX(10deg) scale(1.03) translateY(-8px);
+                        }
+                        100% {
+                          transform: rotateY(-13deg) rotateX(7deg) scale(1.01) translateY(0);
+                        }
                       }
                       @keyframes shinePremium {
                         0% { opacity: 0; transform: translateX(-80%) skewX(-18deg); }
@@ -513,7 +527,7 @@ function App() {
           position: relative;
           cursor: pointer;
           transition: box-shadow 0.3s, background 0.3s, transform 0.3s;
-          animation: fadeUpSkill 0.8s cubic-bezier(.4,2,.6,1) both;
+          /* animation removida para evitar pisca ao trocar idioma */
         }
         .premium-skills-list .skill-item:hover {
           box-shadow: 0 4px 32px #bfa14a77, 0 0 0 2.5px #e5c07b, 0 1.5px 12px 2px #0005;
@@ -584,7 +598,7 @@ function App() {
                       <div className="job-dates">{job.date}</div>
                     </header>
                     <ul className="job-list">
-                      {job.items.map((item, i) => <li key={i}>{item}</li>)}
+                      {job.items.map((item, i) => <li key={item + '-' + i}>{item}</li>)}
                     </ul>
                   </article>
                 ))}
@@ -600,7 +614,27 @@ function App() {
             <header className="job-header">
               <div>
                 <h3 className="job-company">{t[lang].projectsList[0].company}</h3>
-                <div className="job-title">{t[lang].projectsList[0].tech}</div>
+                <div className="job-title" style={{display:'flex',flexWrap:'wrap',gap:'12px',margin:'6px 0'}}>
+                  {t[lang].projectsList[0].tech.split(',').map((tech, idx) => {
+                    const techNorm = tech.trim().toLowerCase().replace(/\s/g, '');
+                    const icons = {
+                      html: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />, 
+                      css: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />, 
+                      javascript: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />, 
+                      react: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />, 
+                      tailwind: <span className="skill-icon"><img src="https://img.icons8.com/color/48/tailwindcss.png" alt="Tailwind CSS" width="28" height="28" style={{display:'block'}} /></span>, 
+                      tailwindcss: <span className="skill-icon"><img src="https://img.icons8.com/color/48/tailwindcss.png" alt="Tailwind CSS" width="28" height="28" style={{display:'block'}} /></span>, 
+                      supabase: <span className="skill-icon"><img src="https://i.postimg.cc/hjbBwCqQ/icons8-supabase-48.png" alt="Supabase" width="28" height="28" style={{display:'block'}} /></span>, 
+                      supabasedb: <span className="skill-icon"><img src="https://i.postimg.cc/hjbBwCqQ/icons8-supabase-48.png" alt="Supabase" width="28" height="28" style={{display:'block'}} /></span>, 
+                      '3d': <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg" alt="3D" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />
+                    };
+                    return (
+                      <span key={idx} style={{display:'flex',alignItems:'center'}}>
+                        {icons[techNorm] || null}
+                      </span>
+                    );
+                  })}
+                </div>
               </div>
             </header>
             <ul className="job-list">
@@ -625,7 +659,27 @@ function App() {
             <header className="job-header">
               <div>
                 <h3 className="job-company">{t[lang].projectsList[1].company}</h3>
-                <div className="job-title">{t[lang].projectsList[1].tech}</div>
+                <div className="job-title" style={{display:'flex',flexWrap:'wrap',gap:'12px',margin:'6px 0'}}>
+                  {t[lang].projectsList[1].tech.split(',').map((tech, idx) => {
+                    const techNorm = tech.trim().toLowerCase().replace(/\s/g, '');
+                    const icons = {
+                      html: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />, 
+                      css: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />, 
+                      javascript: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />, 
+                      react: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />, 
+                      tailwind: <span className="skill-icon"><img src="https://img.icons8.com/color/48/tailwindcss.png" alt="Tailwind CSS" width="28" height="28" style={{display:'block'}} /></span>, 
+                      tailwindcss: <span className="skill-icon"><img src="https://img.icons8.com/color/48/tailwindcss.png" alt="Tailwind CSS" width="28" height="28" style={{display:'block'}} /></span>, 
+                      supabase: <span className="skill-icon"><img src="https://i.postimg.cc/hjbBwCqQ/icons8-supabase-48.png" alt="Supabase" width="28" height="28" style={{display:'block'}} /></span>, 
+                      supabasedb: <span className="skill-icon"><img src="https://i.postimg.cc/hjbBwCqQ/icons8-supabase-48.png" alt="Supabase" width="28" height="28" style={{display:'block'}} /></span>, 
+                      '3d': <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg" alt="3D" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />
+                    };
+                    return (
+                      <span key={idx} style={{display:'flex',alignItems:'center'}}>
+                        {icons[techNorm] || null}
+                      </span>
+                    );
+                  })}
+                </div>
               </div>
             </header>
             <ul className="job-list">
@@ -650,7 +704,27 @@ function App() {
             <header className="job-header">
               <div>
                 <h3 className="job-company">{t[lang].projectsList[2].company}</h3>
-                <div className="job-title">{t[lang].projectsList[2].tech}</div>
+                <div className="job-title" style={{display:'flex',flexWrap:'wrap',gap:'12px',margin:'6px 0'}}>
+                  {t[lang].projectsList[2].tech.split(',').map((tech, idx) => {
+                    const techNorm = tech.trim().toLowerCase().replace(/\s/g, '');
+                    const icons = {
+                      html: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />, 
+                      css: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />, 
+                      javascript: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />, 
+                      react: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />, 
+                      tailwind: <span className="skill-icon"><img src="https://img.icons8.com/color/48/tailwindcss.png" alt="Tailwind CSS" width="28" height="28" style={{display:'block'}} /></span>, 
+                      tailwindcss: <span className="skill-icon"><img src="https://img.icons8.com/color/48/tailwindcss.png" alt="Tailwind CSS" width="28" height="28" style={{display:'block'}} /></span>, 
+                      supabase: <span className="skill-icon"><img src="https://i.postimg.cc/hjbBwCqQ/icons8-supabase-48.png" alt="Supabase" width="28" height="28" style={{display:'block'}} /></span>, 
+                      supabasedb: <span className="skill-icon"><img src="https://i.postimg.cc/hjbBwCqQ/icons8-supabase-48.png" alt="Supabase" width="28" height="28" style={{display:'block'}} /></span>, 
+                      '3d': <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg" alt="3D" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />
+                    };
+                    return (
+                      <span key={idx} style={{display:'flex',alignItems:'center'}}>
+                        {icons[techNorm] || null}
+                      </span>
+                    );
+                  })}
+                </div>
               </div>
             </header>
             <ul className="job-list">
@@ -717,7 +791,27 @@ function App() {
             <header className="job-header">
               <div>
                 <h3 className="job-company">{t[lang].projectsList[3].company}</h3>
-                <div className="job-title">{t[lang].projectsList[3].tech}</div>
+                <div className="job-title" style={{display:'flex',flexWrap:'wrap',gap:'12px',margin:'6px 0'}}>
+                  {t[lang].projectsList[3].tech.split(',').map((tech, idx) => {
+                    const techNorm = tech.trim().toLowerCase().replace(/\s/g, '');
+                    const icons = {
+                      html: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />, 
+                      css: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />, 
+                      javascript: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />, 
+                      react: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />, 
+                      tailwind: <span className="skill-icon"><img src="https://img.icons8.com/color/48/tailwindcss.png" alt="Tailwind CSS" width="28" height="28" style={{display:'block'}} /></span>, 
+                      tailwindcss: <span className="skill-icon"><img src="https://img.icons8.com/color/48/tailwindcss.png" alt="Tailwind CSS" width="28" height="28" style={{display:'block'}} /></span>, 
+                      supabase: <span className="skill-icon"><img src="https://i.postimg.cc/hjbBwCqQ/icons8-supabase-48.png" alt="Supabase" width="28" height="28" style={{display:'block'}} /></span>, 
+                      supabasedb: <span className="skill-icon"><img src="https://i.postimg.cc/hjbBwCqQ/icons8-supabase-48.png" alt="Supabase" width="28" height="28" style={{display:'block'}} /></span>, 
+                      '3d': <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg" alt="3D" style={{height:'28px',objectFit:'contain',background:'none',border:'none',padding:0}} />
+                    };
+                    return (
+                      <span key={idx} style={{display:'flex',alignItems:'center'}}>
+                        {icons[techNorm] || null}
+                      </span>
+                    );
+                  })}
+                </div>
               </div>
             </header>
             <ul className="job-list">
@@ -769,7 +863,7 @@ function App() {
                       </div>
                     </header>
                     <ul className="job-list">
-                      {edu.items.map((item, i) => <li key={i}>{item}</li>)}
+                      {edu.items.map((item, i) => <li key={item + '-' + i}>{item}</li>)}
                     </ul>
                   </article>
                 ))}
